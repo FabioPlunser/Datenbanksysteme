@@ -1,0 +1,56 @@
+        title         | length 
+----------------------+--------
+ SIDE ARK             |     52
+ NEWTON LABYRINTH     |     75
+ HEAVENLY GUN         |     49
+ CONEHEADS SMOOCHY    |    112
+ MAGNOLIA FORRESTER   |    171
+ GRAFFITI LOVE        |    117
+ HUMAN GRAFFITI       |     68
+ BANGER PINOCCHIO     |    113
+ STING PERSONAL       |     93
+ PEAK FOREVER         |     80
+ SKY MIRACLE          |    132
+ PURPLE MOVIE         |     88
+ FEVER EMPIRE         |    158
+ DISTURBING SCARFACE  |     94
+ SENSE GREEK          |     54
+ VOLUME HOUSE         |    132
+ STRANGER STRANGERS   |    139
+ SQUAD FISH           |    136
+ REDEMPTION COMFORTS  |    179
+ DORADO NOTTING       |    139
+ ARK RIDGEMONT        |     68
+ HOME PITY            |    185
+ CONTROL ANTHEM       |    185
+ PITTSBURGH HUNCHBACK |    134
+ QUILLS BULL          |    112
+ CASSIDY WYOMING      |     61
+ BED HIGHBALL         |    106
+ PILOT HOOSIERS       |     50
+ LOATHING LEGALLY     |    140
+ KNOCK WARLOCK        |     71
+ KANE EXORCIST        |     92
+ PRESIDENT BANG       |    144
+ GUNFIGHTER MUSSOLINI |    127
+ SLEEPY JAPANESE      |    137
+ TADPOLE PARK         |    155
+ BOULEVARD MOB        |     63
+ ELF MURDER           |    155
+ MUMMY CREATURES      |    160
+ MASKED BUBBLE        |    151
+ DRIFTER COMMANDMENTS |     61
+ BOONDOCK BALLROOM    |     76
+ SHIP WONDERLAND      |    104
+ WHALE BIKINI         |    109
+ ATLANTIS CAUSE       |    170
+ WARLOCK WEREWOLF     |     83
+ FRENCH HOLIDAY       |     99
+ CONFESSIONS MAGUIRE  |     65
+ ITALIAN AFRICAN      |    174
+ USUAL UNTOUCHABLES   |    128
+ POTTER CONNECTICUT   |    115
+ HALLOWEEN NUTS       |     47
+ CAPER MOTIONS        |    176
+(52 rows)
+

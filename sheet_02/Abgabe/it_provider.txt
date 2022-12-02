@@ -1,0 +1,4 @@
+Eine Überprüfung ob eine Bedingung eingetroffen ist lässt sich in einem ER Modell nicht modellieren.
+Dies ist im Normalfall die Aufgabe des Programmes, welches die Datenbank verwendet.
+In dieser Aufgabe ist es nicht möglich durch des Diagramm zu beschreiben, dass das Lieferdatum mindestens einen Tag nach der Bestellung liegen muss, oder, dass die angegebenen Adressen auch wiklich existieren.
+Genau so wie die überprüfung, ob der Kunde eine bestimmte Anzahl an Bestellungen hat und was dann mit dem Kunden passieren soll.

@@ -1,0 +1,4 @@
+π Name, ArtistId σ len > 1000 * (4 * 60 + 10) and size < 8.5 * 1024 * 1024 
+ρ inner ( π len, size, Artist.ArtistId, Artist.Name 
+γ Artist.ArtistId, Artist.Name; AVG(Track.Miliseconds)→len, 
+AVG(Track.Bytes)→size ( ( Artist ⨝ Album.ArtistId = Artist.ArtistId Album ) ⨝ Album.AlbumId = Track.AlbumId Track ) )

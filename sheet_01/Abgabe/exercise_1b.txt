@@ -1,0 +1,6 @@
+ACID
+
+A = atomar      :> entweder werden alle änderungen einer Transaktion ausgeführt oder keine
+C = Konsistenz  :> Transaktionen dürfen den Datenbestand nicht in einen inkonsistenten Zustand versetzen
+I = Isolation   :> Transaktionen dürfen nicht ineinander greifen
+D = Durability  :> Transaktionen dürfen nicht verloren gehen

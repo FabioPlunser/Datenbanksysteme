@@ -1,0 +1,6 @@
+1. physische Schicht: hier wird festegelegt wie die Daten gepesichert sind 
+
+2. logische Schicht: hier wird das Datenbankschema festegelegt, welche Daten abgespeichert sind. 
+
+3. Externe Schicht/Sichten: Hier werden verschiedene Sichten dargestellt die, die Daten der DB 
+    passend dem Nutzer bereitstellen. 

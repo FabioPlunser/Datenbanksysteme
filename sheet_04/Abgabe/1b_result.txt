@@ -1,0 +1,5 @@
+Customer.LastName	Invoice.InvoiceId	Invoice.Total	Invoice.InvoiceDate
+'Cunningham'	70	1.98	'2009-11-07'
+'Barnett'	71	1.98	'2009-11-07'
+'Francis'	72	3.96	'2009-11-08'
+'Lefebvre'	74	8.91	'2009-11-12'

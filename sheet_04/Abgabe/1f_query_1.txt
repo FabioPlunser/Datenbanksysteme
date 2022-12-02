@@ -1,0 +1,4 @@
+Eins = (Playlist) join PlaylistId<5 ((Track) join (PlaylistContent))
+Zwei = (Playlist) join PlaylistId>5 ((Track) join (PlaylistContent))
+
+pi Track.TrackId, Track.Name, Track.UnitPrice (Eins - Zwei)

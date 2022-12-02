@@ -1,0 +1,1 @@
+π Artist.ArtistId, Album.AlbumId, Track.TrackId, PlaylistContent.PlaylistId ( ( ( Artist ⨝ Album.ArtistId = Artist.ArtistId Album ) ⨝ Track.AlbumId = Album.AlbumId Track ) ⨝ PlaylistContent.TrackId = Track.TrackId PlaylistContent )

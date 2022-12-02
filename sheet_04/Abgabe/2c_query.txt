@@ -1,0 +1,6 @@
+π inner.ArtistId, inner.TrackId, inner.AlbumId, pc.PlaylistId 
+σ pc.TrackId = inner.TrackId ( 
+ρ inner ( π inner.ArtistId, trackArtist.TrackId, inner.AlbumId 
+σ trackArtist.AlbumId = inner.AlbumId ( ρ inner ( π albumArtist.ArtistId, albumArtist.AlbumId 
+σ albumArtist.ArtistId = Artist.ArtistId ( Artist ⨯ ρ albumArtist Album ) ) ⨯ ρ trackArtist Track ) ) ⨯ 
+ρ pc PlaylistContent )

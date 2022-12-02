@@ -1,0 +1,2 @@
+1.) Join joint die Tupel die die Join bedingung erfüllen, anstatt alle zu joinen und dann zu slektieren 
+3.) tabellen die ungefähr gleich groß sind zusammen joinen.

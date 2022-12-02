@@ -1,0 +1,23 @@
+-- Person(id, firstname, lastname, year_of_birth, country_id)
+-- friendship(person1_id, person2_id, friends_since)
+-- follow(person_id, followed_person_id, follows_since)
+-- SELECT *
+-- FROM person
+-- JOIN follow ON (person.id = follow.person_id)
+
+
+-- WITH RECURSIVE RecRel (root_person_id, firstname, lastname, steps, follower_count) AS 
+-- (
+--     SELECT 
+--         person.id, 
+--         person.firstname, 
+--         person.lastname, 
+--         1,
+--         1
+--     FROM person
+--     JOIN follow ON (person.id = follow.followed_person_id)
+--     WHERE person.year_of_birth = 1990
+--         AND follows_since >= date '2015-06-01'
+--         AND follows_since <= date '2016-06-01'
+-- )
+-- SELECT * FROM RecRel

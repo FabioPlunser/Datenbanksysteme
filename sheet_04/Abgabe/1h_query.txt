@@ -1,0 +1,6 @@
+ρ Name←Title π boughtSongs, CustomerId, AlbumId, Title σ boughtSongs ≥ 
+3 ρ inner ( π Customer.CustomerId, Album.AlbumId, Album.Title, boughtSongs 
+γ Album.AlbumId, Album.Title, Customer.CustomerId; COUNT(InvoiceParts.TrackId)→boughtSongs 
+σ Invoice.InvoiceDate > '2010-01-01' ( ( ( ( Customer ⨝ Customer.CustomerId = Invoice.CustomerId Invoice ) 
+⨝ Invoice.InvoiceId = InvoiceParts.InvoiceId InvoiceParts ) 
+⨝ Track.TrackId = InvoiceParts.TrackId Track ) ⨝ Album.AlbumId = Track.AlbumId Album ) )

@@ -1,0 +1,6 @@
+1. Man kann concurrent auf die DB zugreifen
+2. Man kann Daten in der DB nach Datentyp etc ordnen 
+3. DBS besitzen eine Recoverykomponente um Daten wiederherzustellen 
+4. Man kann Keys erstellen, für performance und Datenintegrität
+5. Berechtigungen können gesetzt wer auf was zugriff hat. 
+6. Datentypen können für Felder festgelegt werden

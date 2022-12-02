@@ -1,0 +1,6 @@
+ first_name | last_name | highest_avg_payment_from_customer 
+------------+-----------+-----------------------------------
+ Mike       | Hillyer   |                6.1150000000000000
+ Jon        | Stephens  |                6.6053846153846154
+(2 rows)
+

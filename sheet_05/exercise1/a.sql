@@ -1,0 +1,1 @@
+CREATE DATABASE sheet05_company_example;

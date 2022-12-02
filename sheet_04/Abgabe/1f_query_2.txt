@@ -1,0 +1,11 @@
+Tracks = ((Playlist) full outer join ((Track) join PlaylistId≠5 (PlaylistContent)))
+
+pi Track.TrackId, Track.Name, Track.UnitPrice (Tracks)
+
+
+
+
+
+
+
+

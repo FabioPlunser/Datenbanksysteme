@@ -1,0 +1,8 @@
+Kunden = sigma LastName<'C' (Customer)
+Tracks = ((InvoiceParts) join ((Kunden) join (Invoice)))
+
+Albums = ((Album) join ((Track) join (Tracks)))
+
+Temp = ((Artist) join Artist.ArtistId=Album.ArtistId (Albums))
+
+pi Track.Name, Artist.Name, Album.Title, Customer.FirstName, Customer.LastName (Temp)

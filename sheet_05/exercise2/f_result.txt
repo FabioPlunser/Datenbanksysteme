@@ -1,0 +1,7 @@
+         customer.customer_id
+LIMIT 1
+ customer_name |  staff_name  | total_amount 
+---------------+--------------+--------------
+ MARY SMITH    | Mike Hillyer |           17
+(1 row)
+

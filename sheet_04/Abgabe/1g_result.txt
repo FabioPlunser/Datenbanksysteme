@@ -1,0 +1,3 @@
+inner.Name	inner.ArtistId
+'Foo Fighters'	84
+'Rolling Stones'	142

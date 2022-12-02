@@ -1,0 +1,5 @@
+first = (sigma (InvoiceDate>'2009-11-00'∧InvoiceDate<'2009-12-00') 
+Invoice)
+second = (first ⨝ Customer)
+pi LastName,InvoiceId,Total,InvoiceDate (second)
+

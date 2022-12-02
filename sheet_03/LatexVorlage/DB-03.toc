@@ -1,0 +1,5 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Er-Mapping 1}{1}{section.1}%
+\contentsline {section}{\numberline {2}Er-Mapping 2}{2}{section.2}%
+\contentsline {section}{\numberline {3}Er-Daigramm}{3}{section.3}%
+\contentsline {section}{\numberline {4}ER-Mapping 3}{4}{section.4}%

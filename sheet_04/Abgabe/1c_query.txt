@@ -1,0 +1,3 @@
+all = InvoiceParts join (sigma Genre.Name='Rock' (Track join GenreId=GenreId Genre))
+
+pi Track.Name (all)

@@ -1,0 +1,89 @@
+WITH RECURSIVE RecRel(root_person_id, follower_id, steps, follows_since) AS 
+(
+    SELECT 
+        followed_person_id, 
+        person_id,
+        0, 
+        follows_since
+    FROM person 
+    JOIN follow ON (follow.followed_person_id = person.id)
+    WHERE person.year_of_birth = 1990 AND follows_since BETWEEN '2015-06-01' AND '2016-06-01'
+    UNION ALL
+    SELECT 
+        rec.root_person_id,
+        step.person_id,
+        rec.steps + 1,
+        step.follows_since
+    FROM RecRel AS rec
+    JOIN follow as step ON (rec.follower_id = step.followed_person_id)
+    WHERE rec.steps < 5
+)
+SELECT 
+	sub1.root_person_id, 
+	sub1.firstname,
+	sub1.lastname, 
+	sub1.steps, 
+	sub1.follower_count 
+FROM
+(
+	SELECT 
+		rec.root_person_id,
+		person.firstname, 
+		person.lastname,
+		rec.steps,
+		COUNT(DISTINCT rec.follower_id) AS follower_count
+	FROM RecRel as rec
+	JOIN person ON (rec.root_person_id = person.id)
+	GROUP BY rec.root_person_id, rec.steps, person.id
+	ORDER BY root_person_id ASC, steps ASC
+) AS sub1
+JOIN 
+(
+	SELECT 
+		root_person_id
+	FROM
+	(
+		SELECT 
+			rec.root_person_id,
+			rec.steps,
+			COUNT(DISTINCT rec.follower_id) AS follower_count
+		FROM RecRel as rec
+		GROUP BY rec.root_person_id, rec.steps
+		ORDER BY root_person_id ASC, steps ASC
+	) AS sub2
+	WHERE steps = 5 AND follower_count > 990
+) AS sub3 ON (sub1.root_person_id = sub3.root_person_id)
+ root_person_id | firstname | lastname | steps | follower_count 
+----------------+-----------+----------+-------+----------------
+              2 | Carol     | Garcia   |     0 |              6
+              2 | Carol     | Garcia   |     1 |             30
+              2 | Carol     | Garcia   |     2 |            164
+              2 | Carol     | Garcia   |     3 |            554
+              2 | Carol     | Garcia   |     4 |            943
+              2 | Carol     | Garcia   |     5 |            992
+             73 | Laura     | Young    |     0 |              5
+             73 | Laura     | Young    |     1 |             18
+             73 | Laura     | Young    |     2 |            105
+             73 | Laura     | Young    |     3 |            437
+             73 | Laura     | Young    |     4 |            912
+             73 | Laura     | Young    |     5 |            992
+            166 | Cheryl    | Foster   |     0 |              4
+            166 | Cheryl    | Foster   |     1 |             17
+            166 | Cheryl    | Foster   |     2 |             91
+            166 | Cheryl    | Foster   |     3 |            388
+            166 | Cheryl    | Foster   |     4 |            863
+            166 | Cheryl    | Foster   |     5 |            991
+            293 | Anne      | Gonzalez |     0 |              9
+            293 | Anne      | Gonzalez |     1 |             52
+            293 | Anne      | Gonzalez |     2 |            206
+            293 | Anne      | Gonzalez |     3 |            643
+            293 | Anne      | Gonzalez |     4 |            962
+            293 | Anne      | Gonzalez |     5 |            993
+            815 | Deborah   | Brown    |     0 |             10
+            815 | Deborah   | Brown    |     1 |             61
+            815 | Deborah   | Brown    |     2 |            257
+            815 | Deborah   | Brown    |     3 |            729
+            815 | Deborah   | Brown    |     4 |            978
+            815 | Deborah   | Brown    |     5 |            995
+(30 rows)
+

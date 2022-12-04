@@ -15,8 +15,7 @@ WITH RECURSIVE RecRel(person_id, following, path, steps) AS
         concat(rec.path, '->', follow.followed_person_id),
         rec.steps + 1
 	FROM RecRel AS rec 
-    JOIN person ON (rec.following = person.id) 
-    JOIN follow ON (person.id = follow.person_id)
+    JOIN follow ON (following = follow.person_id)
     WHERE rec.steps < 3
 )
 SELECT * FROM RecRel

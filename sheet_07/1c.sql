@@ -16,9 +16,8 @@ WITH RECURSIVE RecRel(root_person_id, follower_id, steps, follows_since) AS
         step.follows_since
     FROM RecRel AS rec
     JOIN follow as step ON (rec.follower_id = step.followed_person_id)
-    WHERE rec.steps < 5
+    WHERE rec.steps < 5 AND step.follows_since BETWEEN '2015-06-01' AND '2016-06-01'
 )
-
 
 SELECT 
 	sub1.root_person_id, 

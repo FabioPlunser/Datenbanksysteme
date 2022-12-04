@@ -1,0 +1,5 @@
+Schlüsselkandidaten:
+    ACDE, BCDE, 
+
+Ist 3.NF da BCDE in 2.NF und nicht transitiv 
+nicht BCNF da A kein Schlüsselkandidat

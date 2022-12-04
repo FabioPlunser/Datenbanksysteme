@@ -1,0 +1,7 @@
+Schlüsselkandidaten:
+    A, BC, CE
+
+Ist 3.NF da keine doppelung der Attribute möglich ist und 
+    alle attribute erreicht werden können ohne über einen Schlüsselkandidaten zu gehen.
+Nicht BCNF da BD keine Schlüsselkandidat.
+

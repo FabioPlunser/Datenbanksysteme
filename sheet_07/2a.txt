@@ -1,1 +1,5 @@
+Schlüsselkandidaten:
+    BDE, ABD 
 
+3.NF da ABD in 2.NF liegt und keine transitive Abhängigkeiten bestehen.
+Ist nicht BCNF, da E kein Schlüsselkandidat. 

@@ -1,0 +1,5 @@
+Schlüsselkandidaten:
+    D
+
+nicht BCNF
+2.NF da transitiv, und keine doppelte ableitung

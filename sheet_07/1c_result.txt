@@ -37,6 +37,7 @@ FROM
 	GROUP BY rec.root_person_id, rec.steps, person.id
 	ORDER BY root_person_id ASC, steps ASC
 ) AS sub1
+GROUP BY
 JOIN 
 (
 	SELECT 
@@ -53,55 +54,3 @@ JOIN
 	) AS sub2
 	WHERE steps = 5 AND follower_count > 550
 ) AS sub3 ON (sub1.root_person_id = sub3.root_person_id)
- root_person_id | firstname | lastname | steps | follower_count 
-----------------+-----------+----------+-------+----------------
-              2 | Carol     | Garcia   |     0 |              6
-              2 | Carol     | Garcia   |     1 |             17
-              2 | Carol     | Garcia   |     2 |             52
-              2 | Carol     | Garcia   |     3 |            148
-              2 | Carol     | Garcia   |     4 |            353
-              2 | Carol     | Garcia   |     5 |            642
-             15 | Pamela    | Barnes   |     0 |              5
-             15 | Pamela    | Barnes   |     1 |             20
-             15 | Pamela    | Barnes   |     2 |             55
-             15 | Pamela    | Barnes   |     3 |            162
-             15 | Pamela    | Barnes   |     4 |            368
-             15 | Pamela    | Barnes   |     5 |            670
-             73 | Laura     | Young    |     0 |              5
-             73 | Laura     | Young    |     1 |             13
-             73 | Laura     | Young    |     2 |             42
-             73 | Laura     | Young    |     3 |            128
-             73 | Laura     | Young    |     4 |            318
-             73 | Laura     | Young    |     5 |            596
-            147 | Gladys    | Bennett  |     0 |              4
-            147 | Gladys    | Bennett  |     1 |             13
-            147 | Gladys    | Bennett  |     2 |             44
-            147 | Gladys    | Bennett  |     3 |            119
-            147 | Gladys    | Bennett  |     4 |            281
-            147 | Gladys    | Bennett  |     5 |            555
-            293 | Anne      | Gonzalez |     0 |              9
-            293 | Anne      | Gonzalez |     1 |             22
-            293 | Anne      | Gonzalez |     2 |             53
-            293 | Anne      | Gonzalez |     3 |            138
-            293 | Anne      | Gonzalez |     4 |            331
-            293 | Anne      | Gonzalez |     5 |            634
-            487 | Shawn     | Butler   |     0 |              6
-            487 | Shawn     | Butler   |     1 |             14
-            487 | Shawn     | Butler   |     2 |             43
-            487 | Shawn     | Butler   |     3 |            113
-            487 | Shawn     | Butler   |     4 |            298
-            487 | Shawn     | Butler   |     5 |            594
-            600 | Mike      | Cox      |     0 |              3
-            600 | Mike      | Cox      |     1 |             14
-            600 | Mike      | Cox      |     2 |             41
-            600 | Mike      | Cox      |     3 |            111
-            600 | Mike      | Cox      |     4 |            301
-            600 | Mike      | Cox      |     5 |            593
-            815 | Deborah   | Brown    |     0 |             10
-            815 | Deborah   | Brown    |     1 |             37
-            815 | Deborah   | Brown    |     2 |             94
-            815 | Deborah   | Brown    |     3 |            240
-            815 | Deborah   | Brown    |     4 |            496
-            815 | Deborah   | Brown    |     5 |            762
-(48 rows)
-

@@ -38,7 +38,7 @@ FROM
 	GROUP BY rec.root_person_id, rec.steps, person.id
 	ORDER BY root_person_id ASC, steps ASC
 ) AS sub1
-
+GROUP BY
 JOIN 
 (
 	SELECT 

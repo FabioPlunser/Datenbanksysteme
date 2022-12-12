@@ -31,7 +31,7 @@ $(WORK_SHEET_PATTERN)$(CHECK_COMMAND): $(WORK_SHEET_PATTERN)/required-files.yml
 
 # Zipping Rules ------
 
-$(WORK_SHEET_PATTERN)$(ZIP_COMMAND): %/required-files.yml
+$(WORK_SHEET_PATTERN)$(ZIP_COMMAND): $(WORK_SHEET_PATTERN)/required-files.yml
 	@ echo "Zipping:" && echo
 	@ cd $(subst $(ZIP_COMMAND),,$@) && \
 		zip ../$(subst $(ZIP_COMMAND),,$@).zip * \

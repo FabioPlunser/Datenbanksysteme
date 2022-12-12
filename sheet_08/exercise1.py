@@ -1,4 +1,5 @@
 import psycopg2
+from tabulate import tabulate
 
 conn = psycopg2.connect("host=localhost dbname=pagila user=postgres")
 cur = conn.cursor()
@@ -29,14 +30,16 @@ FROM (
     JOIN film ON inventory.film_id = film.film_id
     JOIN film_category ON film.film_id = film_category.film_id
     JOIN category ON film_category.category_id = category.category_id
-    WHERE rental_date BETWEEN '{from_date}' AND '{to_date}'
+    WHERE rental_date BETWEEN %s AND %s
     GROUP BY 
         category.name,
         EXTRACT(DOW FROM rental_date)
 ) AS innerSelect
 GROUP BY category_name
 ORDER BY category_name ASC"""
-    cur.execute(query)
+
+    cur.execute(query, (from_date, to_date))
+  
     data = cur.fetchall()
     if(len(data) == 0):
         print("No data found")
@@ -46,8 +49,10 @@ ORDER BY category_name ASC"""
         main()
 
 def rental_report_function():
-    query = f"""SELECT * FROM report_function('{from_date}', '{to_date}') """
-    cur.execute(query)
+    query = f"""SELECT * FROM report_function(%s, %s) """
+
+    cur.execute(query, (from_date, to_date))
+    
 
     data = cur.fetchall()
     if(len(data) == 0):
@@ -58,23 +63,14 @@ def rental_report_function():
         main()
 
 def print_data(data):
-    array = ["category name", "mon", "tue", "wed", "thu", "fri", "sat", "sun", "total"]
-    print(" | ".join(array), end=" | ")
-    print()
-    print("----------------------------------------------------------------|")
-    for row in data:
-        for i, col in enumerate(row):
-            print("%-*s"% (len(array[i]), col), end=" | ")
-        print()
-
+    print(tabulate(data, headers=["category name", "mon", "tue", "wed", "thu", "fri", "sat", "sun", "total"], tablefmt="psql"))
 
 def main():
     user_input = input("(Pagila)> ").strip()
     if user_input == "exit":
         return
     if user_input == "help" or user_input == "h": 
-        print("help")
-        print("Commands: \n rental_report")
+        print("Commands: \n rental_report, rentaL_report_function")
         main()
 
     if user_input == "rental_report" or user_input == "rental_report_function":
@@ -82,18 +78,7 @@ def main():
         global from_date
         global to_date
         from_date = input("From: ")
-        try: 
-            cur.execute(f"SELECT '{from_date}'::date")
-        except:
-            print("Invalid date format")
-            main()
-        
         to_date = input("To: ")
-        try: 
-            cur.execute(f"SELECT '{to_date}'::date")
-        except:
-            print("Invalid date format")
-            main()
         
         if(user_input == "rental_report"):
             rental_report()

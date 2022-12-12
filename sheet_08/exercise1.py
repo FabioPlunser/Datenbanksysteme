@@ -69,7 +69,7 @@ def print_data(data):
 
 
 def main():
-    user_input = input("(Pagila)> ")
+    user_input = input("(Pagila)> ").strip()
     if user_input == "exit":
         return
     if user_input == "help" or user_input == "h": 

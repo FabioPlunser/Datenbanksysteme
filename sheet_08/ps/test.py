@@ -5,4 +5,14 @@ cur = conn.cursor()
 cur.execute("SELECT * FROM sales")
 
 records = cur.fetchall()
-print(records)
+
+print("Date       | Amount")
+print("-----------+--------")
+total_amount = 0
+for sale in records: 
+        date = sale[0]
+        amount = sale[1]
+
+        print(date, "|", amount)
+        total_amount += amount
+print("\nTotal sales: ", total_amount)

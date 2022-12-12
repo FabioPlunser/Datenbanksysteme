@@ -12,8 +12,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER team_members 
-    BEFORE INSERT OR UPDATE ON team 
+CREATE OR REPLACE TRIGGER team_members 
+    BEFORE INSERT OR UPDATE ON is_part_of 
     FOR EACH ROW
     EXECUTE PROCEDURE team_members_trigger();
 

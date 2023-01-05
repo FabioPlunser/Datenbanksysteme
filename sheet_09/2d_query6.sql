@@ -1,1 +1,1 @@
-SELECT * FROM title_akas ORDER BY region DESC, titleId DESC;
+EXPLAIN SELECT * FROM title_akas ORDER BY region DESC, titleId DESC;

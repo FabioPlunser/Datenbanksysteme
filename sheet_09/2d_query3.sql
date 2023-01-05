@@ -1,1 +1,1 @@
-SELECT * FROM title_akas WHERE region = 'DE';
+EXPLAIN SELECT * FROM title_akas WHERE region = 'DE';

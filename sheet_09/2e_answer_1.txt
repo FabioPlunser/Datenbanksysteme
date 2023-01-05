@@ -1,0 +1,13 @@
+ Hash Join  (cost=551435.35..571091.90 rows=158551 width=18)
+   Hash Cond: (languagecounts.titleid = title_ratings.tconst)
+   CTE languagecounts
+     ->  GroupAggregate  (cost=0.43..506082.27 rows=475654 width=18)
+           Group Key: title_akas.titleid
+           ->  Index Scan using title_akas_pkey on title_akas  (cost=0.43..457908.50 rows=8683446 width=13)
+   InitPlan 2 (returns $1)
+     ->  Aggregate  (cost=10702.22..10702.23 rows=1 width=32)
+           ->  CTE Scan on languagecounts languagecounts_1  (cost=0.00..9513.08 rows=475654 width=8)
+   ->  CTE Scan on languagecounts  (cost=0.00..11891.35 rows=158551 width=40)
+         Filter: ((no_languages)::numeric > $1)
+   ->  Hash  (cost=17310.49..17310.49 rows=997549 width=10)
+         ->  Seq Scan on title_ratings  (cost=0.00..17310.49 rows=997549 width=10)

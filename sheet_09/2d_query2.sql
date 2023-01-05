@@ -1,1 +1,1 @@
-SELECT * FROM title_akas WHERE titleId = "tt6996876";
+EXPLAIN SELECT * FROM title_akas WHERE titleId = 'tt6996876';

@@ -1,0 +1,12 @@
+GroupAggregate  (cost=512028.82..1169689.53 rows=332516 width=18)
+   Group Key: title_ratings.tconst
+   Filter: ((count(title_akas.language))::numeric > $0)
+   InitPlan 1 (returns $0)
+     ->  Aggregate  (cost=512027.95..512027.96 rows=1 width=32)
+           ->  GroupAggregate  (cost=0.43..506082.27 rows=475654 width=18)
+                 Group Key: title_akas_1.titleid
+                 ->  Index Scan using title_akas_pkey on title_akas title_akas_1  (cost=0.43..457908.50 rows=8683446 width=13)
+   ->  Merge Join  (cost=0.86..599281.11 rows=8683446 width=13)
+         Merge Cond: (title_akas.titleid = title_ratings.tconst)
+         ->  Index Scan using title_akas_pkey on title_akas  (cost=0.43..457908.50 rows=8683446 width=13)
+         ->  Index Only Scan using title_ratings_pkey on title_ratings  (cost=0.42..30335.66 rows=997549 width=10)

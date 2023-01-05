@@ -1,0 +1,29 @@
+1.) 64msec
+Index Scan using compound_index on title_akas  (cost=0.43..12.47 rows=2 width=99)
+   Index Cond: ((region = 'DE'::text) AND (titleid = 'tt6996876'::text))
+
+
+2.) 62msec
+Index Scan using title_akas_pkey on title_akas  (cost=0.43..38.50 rows=18 width=99)
+    Index Cond: (titleid = 'tt6996876'::text)
+
+
+3.) 66msec
+Bitmap Heap Scan on title_akas  (cost=22576.58..177141.23 rows=976019 width=99)
+Recheck Cond: (region = 'DE'::text)
+->  Bitmap Index Scan on compound_index  (cost=0.00..22332.58 rows=976019 width=0)
+        Index Cond: (region = 'DE'::text)
+
+4.) 80msec
+Index Scan using compound_index on title_akas  (cost=0.43..598655.68 rows=8683446 width=99)
+
+
+5.) 95msec
+Gather Merge  (cost=910773.40..1755056.15 rows=7236204 width=99)
+Workers Planned: 2
+->  Sort  (cost=909773.38..918818.63 rows=3618102 width=99)
+    Sort Key: region, titleid DESC
+    ->  Parallel Seq Scan on title_akas  (cost=0.00..119908.02 rows=3618102 width=99)
+
+6.) 69msec
+Index Scan Backward using compound_index on title_akas  (cost=0.43..598655.68 rows=8683446 width=99)

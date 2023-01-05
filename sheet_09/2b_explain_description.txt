@@ -1,0 +1,3 @@
+Parallel Seq Scan: scan the table title_akas 
+Es werden 2 Partial aggregate ausgeführt die dann von Gather zusammengefügt werden. 
+Finalize Aggregate zeigt dann das Ergebnis an.

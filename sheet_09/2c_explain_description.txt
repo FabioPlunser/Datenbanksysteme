@@ -1,0 +1,9 @@
+
+Index Only Scan Backwar: Verwendet den erstellten index um title_akas in umgekehrter Reihenfolge zu durchsuchen, wo 
+ordering nicht null ist soll returned werden. 
+
+Limit limitiert die den Index Scan auf 1 Zeile. 
+Result stellt die Zeile dar. 
+
+
+Beim ersten ausführen gleich schnell bei zweiter Ausführung viel scheller. 

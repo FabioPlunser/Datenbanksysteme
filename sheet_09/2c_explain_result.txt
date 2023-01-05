@@ -1,0 +1,5 @@
+Result  (cost=0.46..0.47 rows=1 width=4)
+   InitPlan 1 (returns $0)
+     ->  Limit  (cost=0.43..0.46 rows=1 width=4)
+           ->  Index Only Scan Backward using index_name on title_akas  (cost=0.43..181364.74 rows=8683446 width=4)
+                 Index Cond: (ordering IS NOT NULL)

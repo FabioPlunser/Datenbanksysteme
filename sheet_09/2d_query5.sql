@@ -1,0 +1,1 @@
+SELECT * FROMFROM title_akas ORDER BY region ASC, titleId DESC;

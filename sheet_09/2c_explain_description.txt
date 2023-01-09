@@ -1,9 +1,10 @@
-
-Index Only Scan Backwar: Verwendet den erstellten index um title_akas in umgekehrter Reihenfolge zu durchsuchen, wo 
-ordering nicht null ist soll returned werden. 
-
-Limit limitiert die den Index Scan auf 1 Zeile. 
-Result stellt die Zeile dar. 
-
-
 Beim ersten ausführen gleich schnell bei zweiter Ausführung viel scheller. 
+
+
+Result  (cost=0.46..0.47 rows=1 width=4)
+   InitPlan 1 (returns $0)
+     ->  Limit  (cost=0.43..0.46 rows=1 width=4)
+        (Limitier die Ergebnisse des Index auf 1 Zeile)
+           ->  Index Only Scan Backward using index_name on title_akas  (cost=0.43..181364.74 rows=8683446 width=4) 
+                Index Cond: (ordering IS NOT NULL)
+                (Verwendet den erstellten index um title_akas in umgekehrter Reihenfolge zu durchsuchen, wo ordering nicht null ist soll returned werden.)

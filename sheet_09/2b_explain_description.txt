@@ -1,3 +1,5 @@
-Parallel Seq Scan: scan the table title_akas 
-Es werden 2 Partial aggregate ausgeführt die dann von Gather zusammengefügt werden. 
-Finalize Aggregate zeigt dann das Ergebnis an.
+Finalize Aggregate  (cost=129956.61..129956.62 rows=1 width=4)                                      --> Aggreagtion auf de zusammengefassten Ergebnis
+-> Gather  (cost=129956.40..129956.61 rows=2 width=4)                                               --> Zusammenfassen der Worker
+        Workers Planned: 2
+        ->  Partial Aggregate  (cost=128956.40..128956.41 rows=1 width=4)                           --> Aggregation eines einzelnen Workers
+            ->  Parallel Seq Scan on title_akas  (cost=0.00..119910.52 rows=3618352 width=4)        --> Jeder Worker scannt alle Records der ihm zugewiesenen Blöcke

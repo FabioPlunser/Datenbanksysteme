@@ -1,4 +1,4 @@
-SELECT          customer_id,
+EXPLAIN SELECT  customer_id,
                 last_name,
                 first_name
 FROM            customer

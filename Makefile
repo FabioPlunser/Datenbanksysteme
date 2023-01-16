@@ -18,16 +18,16 @@ WORK_SHEET_PATTERN=sheet_%
 $(WORK_SHEET_PATTERN)$(CHECK_COMMAND): $(WORK_SHEET_PATTERN)/required-files.yml $(WORK_SHEET_PATTERN)$(ZIP_COMMAND)
 	@ echo "Checking Files in $(subst $(CHECK_COMMAND),,$@)/:" && echo
 	@ cd $(subst $(CHECK_COMMAND),,$@) && \
-		python3 ../check-files.py required-files.yml
+		python ../check-files.py required-files.yml
 	@ echo && echo "Checking Zip Archive $(word 2,$^):" && echo
 	@ cd $(subst $(ZIP_COMMAND),,$(word 2,$^)) && \
-		python3 ../check-files.py required-files.yml
+		python ../check-files.py required-files.yml
 
 .PHONY: $(WORK_SHEET_PATTERN)$(CHECK_COMMAND)
 $(WORK_SHEET_PATTERN)$(CHECK_COMMAND): $(WORK_SHEET_PATTERN)/required-files.yml
 	@ echo "Checking Files in $(subst $(CHECK_COMMAND),,$@):" && echo
 	@ cd $(subst $(CHECK_COMMAND),,$@) && \
-		python3 ../check-files.py required-files.yml
+		python ../check-files.py required-files.yml
 
 # Zipping Rules ------
 
@@ -38,7 +38,7 @@ $(WORK_SHEET_PATTERN)$(ZIP_COMMAND): $(WORK_SHEET_PATTERN)/required-files.yml
 		-x $(foreach file_ending,$(EXCLUDED_FILE_ENDINGS),*.$(file_ending))
 	@ echo && echo "Testing Zip:" && echo
 	@ cd $(subst $(ZIP_COMMAND),,$@) && \
-		python3 ../check-files.py required-files.yml
+		python ../check-files.py required-files.yml
 
 $(WORK_SHEET_PATTERN)$(ZIP_COMMAND):
 	@ echo "Zipping:" && echo

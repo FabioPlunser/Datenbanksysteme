@@ -1,4 +1,6 @@
-For speeding up this query we sould create a index in ascending order on the column `last_name` of the table `customer`:
+At the moment it will have to sort the entire table on every exectuin.
+This will take up a lot of time the bigger the table gets. (>O(n)) <br>
+For speeding up this query we should create a index in ascending order on the column `last_name` of the table `customer`:
     
 ```sql
 CREATE INDEX last_name ON customer (last_names ASC);
@@ -24,4 +26,6 @@ With Index
 Time: 1.355 ms
 ```
 
-The Index is not used, because the dataset is to small. If the dataset would be bigger, the index would be used.
+Normally now we would directly get the data in order from the seq scan.
+That would save us the sorting. <br>
+In this case the index is not used, because the dataset is to small. If the dataset would be bigger, the index would be used.

@@ -18,7 +18,9 @@ GroupAggregate  (cost=193423.12..193451.71 rows=128 width=21)
                                    Filter: (length < 120)
 ```
 
-In the normal query their is a nested loop. First loop must wait for the second loop to finish.
+The old query does first evaluate all films that have a length of less than 120 minutes, and checks afterwards for every film if it is contained in the cached list.
+This results in a nested loop. The outer loop must wait for the inner loop to finish. <br>
+Therefore the old query takes O(n²) time to look for which films should be included.
 
 ```sql
 faster: 
@@ -37,4 +39,6 @@ faster:
                ->  Hash  (cost=4.00..4.00 rows=200 width=17)
                      ->  Seq Scan on actor  (cost=0.00..4.00 rows=200 width=17)
 ```
-In the new query there is a hash join. The hash join is faster because it can start the second loop before the first loop is finished.
+
+The edited query is faster, because it will only take the films with the length >= 120 minutes. <br>
+The new query only takes O(n) to accomplish the same task.
